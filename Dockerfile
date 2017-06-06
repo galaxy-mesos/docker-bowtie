@@ -1,6 +1,6 @@
 FROM ubuntu
 RUN apt-get -y update
-RUN apt-get install -y wget gzip zip bzip2 python mercurial
+RUN apt-get install -y wget gzip zip bzip2 python
 RUN mkdir /usr/tools && cd /usr/tools
 RUN mkdir /usr/tools/bin
 WORKDIR /usr/tools
@@ -23,7 +23,7 @@ RUN conda install -y bowtie
 #RUN mkdir /tmp/bowtie
 #WORKDIR /tmp/bowtie
 
-RUN hg clone https://github.com/galaxyproject/tools-devteam/tree/master/tools/bowtie_wrappers bowtie_deps
+RUN git clone https://github.com/galaxyproject/tools-devteam/tree/master/tools/bowtie_wrappers bowtie_deps
 RUN cp bowtie_deps/bowtie_wrapper.py /usr/tools/bin/bowtie_wrapper.py
 RUN chmod a+x /usr/tools/bin/bowtie_wrapper.py
 
