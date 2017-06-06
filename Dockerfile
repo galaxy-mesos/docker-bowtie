@@ -1,6 +1,6 @@
 FROM ubuntu
 RUN apt-get -y update
-RUN apt-get install -y wget gzip zip bzip2 python
+RUN apt-get install -y wget gzip zip bzip2 python mercurial
 RUN mkdir /usr/tools && cd /usr/tools
 RUN mkdir /usr/tools/bin
 WORKDIR /usr/tools
