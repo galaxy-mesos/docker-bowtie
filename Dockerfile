@@ -24,13 +24,11 @@ RUN conda install -y bowtie
 #WORKDIR /tmp/bowtie
 
 RUN git clone https://github.com/galaxyproject/tools-devteam bowtie_deps
-RUN cp bowtie_deps/tools/bowtie_wrappers/bowtie_wrapper.py /usr/bin/bowtie_wrapper.py
-RUN chmod a+x /usr/bin/bowtie_wrapper.py
+RUN cp bowtie_deps/tools/bowtie_wrappers/bowtie_wrapper.py /usr/tools/bowtie_wrapper.py
+RUN chmod a+x /usr/tools/bowtie_wrapper.py
 
-#RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ### add shared directory
-ADD . /data
-WORKDIR /data
-
+#ADD . /data
+#WORKDIR /data
