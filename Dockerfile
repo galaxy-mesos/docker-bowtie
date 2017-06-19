@@ -32,5 +32,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ### add shared directory
 #ADD . /data#
-WORKDIR /usr/bin
+ENV WORKDIR /usr/bin
+WORKDIR $WORKDIR
 
