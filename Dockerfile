@@ -1,9 +1,9 @@
 FROM ubuntu
 RUN apt-get -y update
 RUN apt-get install -y wget gzip zip bzip2 python git
-RUN mkdir /usr/tools && cd /usr/tools
-RUN mkdir /usr/tools/bin
-WORKDIR /usr/tools
+#RUN mkdir /usr/tools && cd /usr/tools
+#RUN mkdir /usr/tools/bin
+#WORKDIR /usr/tools
 
 ### install conda 
 
@@ -24,8 +24,8 @@ RUN conda install -y bowtie
 #WORKDIR /tmp/bowtie
 
 RUN git clone https://github.com/galaxyproject/tools-devteam bowtie_deps
-RUN cp bowtie_deps/tools/bowtie_wrappers/bowtie_wrapper.py /usr/tools/bowtie_wrapper.py
-RUN chmod a+x /usr/tools/bowtie_wrapper.py
+RUN cp bowtie_deps/tools/bowtie_wrappers/bowtie_wrapper.py /usr/bin/bowtie_wrapper.py
+RUN chmod a+x /usr/bin/bowtie_wrapper.py
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
